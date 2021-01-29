@@ -16,7 +16,7 @@ def main(pathToTxt, nWords):
 				continue
 		# find average word of last n words
 		mostCommon = mode(newData)
-		typewrite(mostCommon)
+		typewrite(mostCommon + '\n')
 		return mostCommon
 
 	except:
