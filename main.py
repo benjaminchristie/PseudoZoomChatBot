@@ -3,6 +3,19 @@ import traceback
 from statistics import mode
 import time
 
+'''
+EDIT THE VARIABLES IMMEDIATELY BELOW
+
+DEFAULTS:
+pathToFile = "C:/Users/Benjamin/Documents/Zoom/2021-01-22 15.20.24 ME 3034_ Writing as a Mechanical Engineer 94482445948/meeting_saved_chat.txt"
+numLines = 100
+delay = 30
+
+'''
+pathToFile = "C:/Users/Benjamin/Documents/Zoom/2021-01-22 15.20.24 ME 3034_ Writing as a Mechanical Engineer 94482445948/meeting_saved_chat.txt"
+numLines = 100
+delay = 30
+
 def main(pathToTxt, nWords):
 	try:
 		# get all texts
@@ -25,10 +38,12 @@ def main(pathToTxt, nWords):
 
 if __name__ == "__main__":
 	filename="C:/Users/Benjamin/Documents/Zoom/2021-01-22 15.20.24 ME 3034_ Writing as a Mechanical Engineer 94482445948/meeting_saved_chat.txt"
+	
+
 	time.sleep(5)
 	while True:
-		print('Typewriter wrote : ' + main(filename, 100))
-		time.sleep(30)
+		print('Typewriter wrote : ' + main(filename, numLines))
+		time.sleep(delay)
 
 else:
 	pass
