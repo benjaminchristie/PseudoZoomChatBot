@@ -8,6 +8,8 @@ Simply takes in the text file of the zoom chat and outputs the average word of t
 
 ## To run:
 `python main.py`
+`Place your cursor in the chat box of zoom`
+`Profit`
 
 ## Issues:
 None known, report them to me.
