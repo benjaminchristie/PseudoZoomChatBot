@@ -7,6 +7,7 @@ Simply takes in the text file of the zoom chat and outputs the average word of t
 `pip install -r requirements.txt`  
 
 ## To run:
+`Update the file path, delay, and number of lines to look through to your liking`  
 `python main.py`  
 `Place your cursor in the chat box of zoom`  
 `Profit`  
