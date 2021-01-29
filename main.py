@@ -1,5 +1,3 @@
-import os
-import sys
 from pyautogui import press, typewrite, hotkey
 import traceback
 from statistics import mode
