@@ -46,13 +46,16 @@ def main(pathToTxt, nWords):
 		traceback.print_exc()
 
 
-def saveZoomChat(zoomPath, ID):
+def saveZoomChat(zoomPath, ID, pos=0):
 	# requires zoom window be selected, chat window maximized, and cursor in 'chat' section
 	# hotkey('alt', 'h') # get chat window
 	hotkey('shift', 'tab') # get more icon in chat ? think this works
 	press('enter')
 	(screenWidth, screenHeight) = size()
-	moveTo(int(screenWidth * X_FACTOR), int(screenHeight * Y_FACTOR))
+	if pos==0:
+		moveTo(int(screenWidth * X_FACTOR), int(screenHeight * Y_FACTOR))
+	else:
+		moveTo(pos)
 	click()
 	hotkey('tab')
 	press('enter')
@@ -84,13 +87,37 @@ def semimain():
 				raise ValueError("Incorrect length")
 		except ValueError:
 			print("Please enter a 10 digit integer")
+	if str(input("Do you want to calibrate your display positions first? Enter [Y/n] : ")).upper() == 'Y':
+		savePos = calibrate()
+	else:
+		savePos = 0
 	print("Navigate to chat window, fullscreen on primary monitor, and place your cursor in the chat box")
-	time.sleep(5)
+	time.sleep(10)
 	while True:
-		pathToFile = saveZoomChat(zoomPath, zoomMeetingID)
+		pathToFile = saveZoomChat(zoomPath, zoomMeetingID, savePos)
 		print('Typewriter wrote : ' + main(pathToFile, numLines))
+		print("Waiting {} seconds...".format(str(delay)))
 		time.sleep(delay)
 
+def calibrate():
+	print("---------------------------------------------------------------\nFOLLOW THESE INSTRUCTIONS CAREFULLY")
+	print("Move mouse to chat window")
+	time.sleep(0.1)
+	print("Then, click the three dots on the right")
+	time.sleep(0.1)
+	print("Finally, hover over the \"Save Chat\" button until calibrated")
+	print("Waiting fifteen seconds...")
+	time.sleep(15)
+	before = (0,0)
+	pos = (1,1)
+	while before != pos:
+		print("Calibrating...")
+		print("Position : {},{}".format(str(position().x), str(position().y)))
+		before = pos
+		time.sleep(3)
+		pos = (position().x, position().y)
+	print("Calibrated! Ready to use bot.")
+	return pos
 
 if __name__ == "__main__":
 	semimain()
