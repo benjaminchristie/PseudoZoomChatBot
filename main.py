@@ -89,7 +89,7 @@ def semimain():
 		savePos = calibrate()
 	else:
 		savePos = 0
-	print("Navigate to chat window, fullscreen on primary monitor, and place your cursor in the chat box")
+	print("Navigate to chat window, fullscreen on primary monitor if uncalibrated, and place your cursor in the chat box")
 	time.sleep(10)
 	while True:
 		pathToFile = saveZoomChat(zoomPath, zoomMeetingID, savePos)
