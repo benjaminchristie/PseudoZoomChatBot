@@ -3,8 +3,8 @@ Simply takes in the text file of the zoom chat and outputs the average word of t
 This now works even if you don't have file save access! Pyautogui is magical.  
 
 ## To install:
-`git clone https://github.com/benjaminchristie/PseudoZoomChatBot.git`  
-`cd PseudoZoomChatBot`  
+`git clone https://github.com/benjaminchristie/ZoomChatBot.git`  
+`cd ZoomChatBot`  
 `pip install -r requirements.txt`   
 `Or just run the standalone executable if you don't want to download anything else`  
 
