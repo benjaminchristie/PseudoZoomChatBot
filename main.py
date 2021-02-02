@@ -82,11 +82,9 @@ def semimain():
 		zoomPath = input("Enter zoom meeting document path (eg C:/Users/Benjamin/Documents/Zoom/): ")
 	while type(zoomMeetingID) != int:
 		try:
-			zoomMeetingID = int(input("Enter zoom meeting ID (should be 10 digit number, eg 92295112497) : "))
-			if len(str(zoomMeetingID)) != 10:
-				raise ValueError("Incorrect length")
+			zoomMeetingID = int(input("Enter zoom meeting ID (should be an 8-13 digit number, eg 92295112497) : "))
 		except ValueError:
-			print("Please enter a 10 digit integer")
+			print("Please enter a 8-13 digit integer")
 	if str(input("Do you want to calibrate your display positions first? Enter [Y/n] : ")).upper() == 'Y':
 		savePos = calibrate()
 	else:
