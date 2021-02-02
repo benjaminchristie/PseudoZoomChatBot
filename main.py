@@ -1,4 +1,4 @@
-from pyautogui import press, typewrite, hotkey, moveTo, size, position, click, dragTo
+from pyautogui import *
 import traceback
 from statistics import mode
 import time
@@ -144,8 +144,13 @@ def saveWithoutFile():
 	# get data from screen
 	root = tkinter.Tk()
 	root.withdraw()
-	moveTo(int(screenWidth*TOP_LEFT_POS_RATIO[0]), int(screenHeight*TOP_LEFT_POS_RATIO[1]))
-	dragTo(int(screenWidth/2), screenHeight, 0.2, button='left')
+	#moveTo(int(screenWidth*TOP_LEFT_POS_RATIO[0]), int(screenHeight*TOP_LEFT_POS_RATIO[1]))
+	#dragTo(int(screenWidth/2), screenHeight, 0.2, button='left')
+	moveTo(int(screenWidth*0.5), int(screenHeight*0.75))
+	mouseDown()
+	slowScroll(20, 0.001, 250)
+	moveTo(int(screenWidth*0.5), 0, 0.1)
+	mouseUp()
 	hotkey('ctrl', 'c')
 	cpboard = root.clipboard_get()
 	root.destroy()
@@ -168,6 +173,10 @@ def saveWithoutFile():
 	'''
 	return mostCommon
 
+def slowScroll(amount=50, wait=0.001, scrollAm=-100):
+	for s in range(amount):
+		scroll(scrollAm)
+		time.sleep(wait)
 
 
 if __name__ == "__main__":
